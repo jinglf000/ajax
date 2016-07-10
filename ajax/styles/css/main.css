@@ -4,3 +4,63 @@ html, ul ,div ,li ,dt ,dd ,ol ,span ,h1 ,h2 ,h3, h4 ,h5 ,section {
 	font-size: 16px;
 	font-family: "Microsoft YaHei";
 }
+*{
+	box-sizing: border-box;
+}
+.row_01{
+	text-align: right;
+	line-height: 42px;
+}
+#submit{
+	margin: 40px 130px;
+}
+/*输入框样式*/
+.input{
+	width: 209px;
+	height: 32px;
+	padding: 4px 6px;
+	line-height: 20px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 0 2px #ccc;
+	transition: border linear .2s,box-shadow cubic-bezier(0.76,0.01,0.34,1) .2s;
+}
+.input:focus{
+	border-color: rgba(82, 168, 236, 0.8);
+	outline: 0;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.4);
+}
+/*按钮样式*/
+.button{
+	height: 32px;
+	width: 120px;
+	padding: 4px 6px ;
+	background-color: #fff;
+	border: 1px solid #2997d0;
+	border-radius: 6px;
+	box-shadow: none;
+	color: #2997d0;
+	cursor: pointer;
+}
+.button:hover{
+	background-color: #2997d0;
+	color: #fff;
+}
+/*下拉框样式*/
+.select{
+	height: 32px;
+	padding: 4px 6px;
+	border-radius: 4px;
+	box-shadow: inset 0 0 2px #ccc;
+	width: 209px;
+	border: 1px solid #ccc;
+}
+.select:focus{
+	outline: 0;
+	border-color: rgba(82, 168, 236, 0.8);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.4);
+}
+/*单选框*/
+
+
