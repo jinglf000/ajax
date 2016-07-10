@@ -4,27 +4,30 @@
 	<meta charset="UTF-8">
 	<title>验证密码</title>
 	<link rel="stylesheet" type="text/css" href="../styles/css/main.css">
+	<script type="text/javascript" src="../common/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../common/lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../common/js/main.js"></script>
 </head>
 <body>
 	<form name="ajax" type="post" id="ajax" action="">
 		<table>
 			<tbody>
 				<tr>
-					<td>用户名：</td>
-					<td><input type="text" name="username" id="username"></td>
+					<td class="row_01">用户名：</td>
+					<td class="row_02"><input type="text" name="username" id="username" class="input"></td>
 				</tr>
 				<tr>
-					<td>密码：</td>
-					<td><input type="password" name="password" id="password"></td>
+					<td class="row_01">密码：</td>
+					<td class="row_02"><input type="password" name="password" id="password" class="input"></td>
 				</tr>
 				<tr>
-					<td>手机号：</td>
-					<td><input type="text" name="phone" id="phone"></td>
+					<td class="row_01">手机号：</td>
+					<td class="row_02"><input type="text" name="phone" id="phone" class="input"></td>
 				</tr>		
 				<tr>
-					<td>选择密保问题1：</td>
-					<td>
-						<select name="question_01">
+					<td class="row_01">选择密保问题1：</td>
+					<td class="row_02">
+						<select name="question_01" class="select" id="select_ie">
 							<option value="01" selected="selected">您父亲的名字。</option>
 							<option value="02">您小学班主任的名字。</option>
 							<option value="03">您母亲的名字。</option>
@@ -32,11 +35,36 @@
 					</td>
 				</tr>
 				<tr>
-					<td>答案1：</td>
-					<td><input type="text" name="answer_01"></td>
+					<td class="row_01">答案1：</td>
+					<td class="row_02"><input type="text" name="answer_01" class="input"></td>
 				</tr>
+				<tr>
+					<td class="row_01">性别：</td>
+					<td class="row_02">
+						<label for="man">男</label>
+						<input type="radio" name="sex" value="01" id="man" class="radio">
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<label for="woman">女</label>
+						<input type="radio" name="sex" value="02" id="woman" class="radio">
+					</td>
+				</tr>
+				<tr>
+					<td class="row_01">盒子：</td>
+					<td class="row_02">
+						<label for="box_01">黑色</label>
+						<input type="checkbox" name="box" id="box_01" value="01">
+						<label for="box_02">红色</label>
+						<input type="checkbox" name="box" id="box_02" value="02">
+						<label for="box_03">米色</label>
+						<input type="checkbox" name="box" id="box_03" value="03">
+						<label for="box_04">蓝色</label>
+						<input type="checkbox" name="box" id="box_04" value="04"> 
+					</td>
+				</td>
 			</tbody>
 		</table>
+			<input type="submit" name="submit" value="验证" id="submit" class="button">
 	</form>
+	<button class="button" id="cook">设置cookie</button>
 </body>
 </html>
