@@ -66,5 +66,65 @@
 			<input type="submit" name="submit" value="验证" id="submit" class="button">
 	</form>
 	<button class="button" id="cook">设置cookie</button>
+	<script>
+		// full 验证 obj 为input元素， rule 为验证规则，t_val为提示信息，现在只支持不能为
+// 空，和格式不正确
+function check(obj,rule,t_val){
+    var status = true;
+    // alert(rule);
+    return 
+    obj.blur(function(status){
+        if (obj.val() == "") {
+            obj.after("<span class='_it_auto_msg_span'>"+t_val+"不能为空。</span>")
+            status = false;
+        }else{
+            if(rule.test(obj.val()) == false){
+                this_.after("<span class='_it_auto_msg_span'>"+t_val+"格式错误。</span>");
+                status = false;
+            }
+        };
+    }).focus(function(){
+        obj.next('._it_auto_msg_span').remove();
+    });
+    return status;
+}
+// 状态 成功01，失败02，为空03
+function validate(obj,rule,t_val,flag){
+    var fun = arguments.callee;
+    // flag = "01";
+    var m1 = obj;
+    var m2 = rule
+    obj.one('blur',function(){
+        if(obj.val() == ""){
+            obj.after("<span class='_it_auto_msg_span'>"+t_val+"不能为空。</span>");
+            var flag_m = "03";
+            setTimeout(function(){
+                fun(obj,rule,t_val,"03");
+                // alert(flag)
+            },50)
+        }else{
+            if(rule.test(obj.val()) == false){
+                this_.after("<span class='_it_auto_msg_span'>"+t_val+"格式错误。</span>");
+                var flag_m = "02";
+                setTimeout(function(){
+                    fun(obj,rule,t_val,"02");
+                },50)
+            }else{
+                var flag = "01";
+                setTimeout(function(){
+                    fun(obj,rule,t_val,"02");
+                },50)
+                // arguments.callee(obj,rule,t_val,flag);
+            }
+        }
+    }).one('focus',function(){
+        obj.next("._it_auto_msg_span").remove();
+    });
+    if(flag == "02" || flag == "03"){
+        return flag;
+        alert(flag)
+    };
+}
+	</script>
 </body>
 </html>
